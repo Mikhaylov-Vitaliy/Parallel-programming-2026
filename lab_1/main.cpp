@@ -59,7 +59,7 @@ int main() {
 	const std::string fileManual = "matrix.txt";
 	std::string targetFile = "";
 
-	std::println("1. Сгенерировать случайную матрицу (до 1000х1000)");
+	std::println("1. Сгенерировать случайную матрицу (до 2000х2000)");
 	std::println("2. Использовать матрицу из файла (matrix.txt)");
 	std::print("Выберите вариант: ");
 
