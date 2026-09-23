@@ -43,3 +43,6 @@
 
 ![График ускорения OpenMP](lab_2/output/openmp_speedup_graph.png)
 
+![График производительности GFLOPS](lab_2/output/openmp_gflops_graph.png)
+
+
