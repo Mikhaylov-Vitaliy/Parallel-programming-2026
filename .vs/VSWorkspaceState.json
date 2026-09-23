@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\lab_1",
-    "\\lab_1\\lab1"
+    "\\lab_1\\lab1",
+    "\\lab_2",
+    "\\lab_2\\lab_2",
+    "\\lab_2\\output"
   ],
-  "SelectedNode": "\\lab_1\\main.cpp",
+  "SelectedNode": "\\graphic2.py",
   "PreviewInSolutionExplorer": false
 }
