@@ -41,4 +41,7 @@
 
 
 
+![График ускорения OpenMP](lab_2/output/openmp_speedup_graph.png)
+
+
 
