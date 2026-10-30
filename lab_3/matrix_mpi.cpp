@@ -72,18 +72,16 @@ int main(int argc, char** argv) {
     Matrix1D local_A(sendcounts[rank]);
     Matrix1D local_C(sendcounts[rank], 0.0);
 
-    // Синхронизация перед замером времени алгоритма
     MPI_Barrier(MPI_COMM_WORLD);
     auto start = std::chrono::high_resolution_clock::now();
 
-    // 1. Рассылаем порции строк матрицы А
+    // Рассылаем порции строк матрицы А
     MPI_Scatterv(A.data(), sendcounts.data(), displs.data(), MPI_DOUBLE,
         local_A.data(), sendcounts[rank], MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
-    // 2. Рассылаем всю матрицу B всем процессам
+    // Рассылаем всю матрицу B всем процессам
     MPI_Bcast(B.data(), n * n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
-    // 3. Параллельное локальное умножение (с оптимизацией кеша i-k-j)
     for (int i = 0; i < local_num_rows; ++i) {
         for (int k = 0; k < n; ++k) {
             double val = local_A[i * n + k];
@@ -93,7 +91,6 @@ int main(int argc, char** argv) {
         }
     }
 
-    // 4. Сборка результатов в итоговую матрицу C на процессе 0
     MPI_Gatherv(local_C.data(), sendcounts[rank], MPI_DOUBLE,
         C.data(), sendcounts.data(), displs.data(), MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
