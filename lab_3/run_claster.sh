@@ -6,25 +6,18 @@
 #SBATCH --ntasks-per-node=16
 #SBATCH --time=00:25:00
 
-# Переходим в рабочую директорию
 cd $SLURM_SUBMIT_DIR
-
-# Полностью очищаем окружение
 module purge
 
-# Загружаем ТОЛЬКО модуль MPI (БЕЗ компилятора icc18, чтобы не ломать пути к библиотекам)
 module load intel/mpi5
 
-# Очищаем старый отчет
 rm -f performance_report.txt
 
 # Явно заставляем Intel MPI использовать стандартный системный компилятор GNU G++
 export I_MPI_CXX=g++
 
-# Компилируем через mpic++ (альтернативный макрос сборки MPI, работающий с g++)
 mpic++ -O3 -std=c++11 matrix_mpi.cpp -o ./mpi_matrix_exec
 
-# Проверка сборки
 if [ ! -f ./mpi_matrix_exec ]; then
     echo "КРИТИЧЕСКАЯ ОШИБКА: Сборка не удалась через системный g++!" >&2
     exit 1
