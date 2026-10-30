@@ -2,6 +2,7 @@
 *.vcxproj
 *.vcxproj.user
 *.vcxproj.filters
+*.pyproj
 .vs/
 x64/
 Debug/
