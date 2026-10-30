@@ -550,6 +550,4 @@ plt.tight_layout()
 plt.savefig("speedup_vs_cores.png")
 plt.close()
 
-# print(df.to_markdown(index=False))
-
 
