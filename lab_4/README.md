@@ -82,13 +82,13 @@ nvcc -O3 -std=c++11 matrix_cuda.cu -o ./cuda_matrix_exec
 Для генерации графиков запустите `python plot_cuda_results.py`.
 
 ### 1. Время чистого расчёта ядра (Kernel)
-![Время выполнения ядра CUDA](1_cuda_kernel_time.png)
+![Время выполнения ядра CUDA](plot_cuda_results/1_cuda_kernel_time.png)
 
 ### 2. Реальная производительность (Kernel GFLOPS vs Общая GFLOPS)
-![Сравнение производительности GFLOPS](2_cuda_gflops_comparison.png)
+![Сравнение производительности GFLOPS](plot_cuda_results/2_cuda_gflops_comparison.png)
 
 ### 3. Накладные расходы на передачу данных по шине PCIe
-![Доля затрат на PCIe](3_cuda_pcie_overhead.png)
+![Доля затрат на PCIe](plot_cuda_results/3_cuda_pcie_overhead.png)
 
 ---
 
